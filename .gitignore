@@ -1,0 +1,5 @@
+crowdman.csv
+crowdman_fixed.csv
+*.swp
+*.swo
+.stack-work/

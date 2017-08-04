@@ -1,0 +1,32 @@
+name:                crowdman-fix
+version:             0.1.0.0
+synopsis:            Initial project template from stack
+description:         Please see README.md
+--homepage:            https://github.com/MortimerMcMire315/happstack-skeleton#readme
+license:             GPL-3
+license-file:        LICENSE
+author:              Seth A. Yoder
+maintainer:          seth.a.yoder@gmail.com
+copyright:           2016 Seth A. Yoder
+category:            Web
+build-type:          Custom
+extra-source-files:  README.md
+cabal-version:       >=1.23
+
+custom-setup
+    setup-depends: base, Cabal
+
+executable crowdman-fix
+  hs-source-dirs:      src
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base < 5.0
+                     , wreq
+                     , lens
+                     , bytestring
+                     , aeson
+                     , cassava
+                     , vector
+                     , http-client
+  default-language:    Haskell2010
+  other-modules:       StateInfo
