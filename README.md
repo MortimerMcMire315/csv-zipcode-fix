@@ -9,15 +9,15 @@ code... Vim macros came in handy here.
 
 It's handy that the [cassava](https://hackage.haskell.org/package/cassava)
 CSV-parsing package uses the same syntax as Aeson and YAML for creating
-parseable data types. `.:` is used as a lookup function, and since everything is
-a functor, we can just use `<$>` and `<*>` to map a type constructor over the
-parsers.
+parseable data types. `.:` is used as a lookup function, and since the 
+parsers are functors, we can just use `<$>` and `<*>` to map a type 
+constructor over the parsers.
 
 Here, `Transaction <$> (p .: "ID") <*> p .: "Payment ID"`...etc... is the
 Transaction constructor (`String -> String -> String ...etc... -> Transaction`)
 getting fmap'd over a bunch of parsers.
 
-`<$>` is just infix `fmap`. `fmap` has type `Functor f => (a -> b) -> f a -> f b`.
+`<$>` is infix `fmap`. `fmap` has type `Functor f => (a -> b) -> f a -> f b`.
 in this situation, our `a -> b` is the `Transaction` constructor, so:
 
 * our `a` is `(String -> String -> String ... etc... -> String)`
